@@ -14,6 +14,10 @@ TomCat
 Maven
 
 Postman
+# You can run:
+Clone with HTTPS: https://github.com/osen15/IntelliartsTest.git
+
+IDE: used IntelliJ IDEA
 # Operations in the application:
 >adds purchases
 
