@@ -7,4 +7,6 @@ Hibernate,
 Oracle SQL,
 TomCat,
 Maven.
+#Operations in the application:
+>adds purchases
 
