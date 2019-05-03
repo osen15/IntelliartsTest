@@ -39,15 +39,15 @@ public class PurchaseController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/removeByDate")
     @ResponseBody
-    String doClear(@RequestParam("date") String stDate) throws BadRequestEXception, InternalServerError {
-        purchaseService.clear(stDate);
-        return "purchases are deleted";
+    Map<LocalDate, List<String>> doClear(@RequestParam("date") String stDate) throws BadRequestEXception, InternalServerError {
+      return  purchaseService.clear(stDate);
+
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/allPurchasesByDate")
+    @RequestMapping(method = RequestMethod.GET, value = "/allPurchases")
     @ResponseBody
-    String doAll(@RequestParam("date") String stDate) throws BadRequestEXception, InternalServerError {
-        return purchaseService.all(stDate).toString();
+    Map<LocalDate, List<String>> doAll() throws BadRequestEXception, InternalServerError {
+        return purchaseService.getAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/report")

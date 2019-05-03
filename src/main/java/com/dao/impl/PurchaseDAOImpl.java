@@ -6,24 +6,19 @@ import com.models.Purchase;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import javax.persistence.TemporalType;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 @Repository
 @Transactional
 public class PurchaseDAOImpl extends GeneralDAOImpl<Purchase> implements PurchaseDAO {
     private String REMOVE_PURCHASES_BY_DATE =
-            "DELETE FROM PURCHASES WHERE TRUNC(DATE_OF_PURCHASE) < DATE_OF_PURCHASE = :pDate";
+            "DELETE FROM PURCHASES WHERE TRUNC(DATE_OF_PURCHASE)  = :pDate";
     private String ALL_PURCHASES_BY_DATE =
             "SELECT*FROM PURCHASES ORDER BY DATE_OF_PURCHASE desc";
+
     @Override
     Class<Purchase> getModelClass() {
         return Purchase.class;

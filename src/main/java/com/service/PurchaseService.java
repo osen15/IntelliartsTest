@@ -43,12 +43,14 @@ public class PurchaseService {
         return purchases;
     }
 
-    public void clear(String strDate) throws BadRequestEXception, InternalServerError {
+    public Map<LocalDate, List<String>>  clear(String strDate) throws BadRequestEXception, InternalServerError {
         LocalDate localDate = LocalDate.parse(strDate);
         if (localDate == null)
             throw new BadRequestEXception("bad request");
         Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        System.out.println(date);
         purchaseDAO.removePurchasesByDate(date);
+        return getAll();
     }
 
     public Map<LocalDate, List<String>> getAll() {
