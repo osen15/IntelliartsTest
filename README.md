@@ -13,11 +13,18 @@ This is a test task for the Summer Camp 2019
 
 >Maven
 
+>IDE: used IntelliJ IDEA
+
 >Postman
 # You can run:
-Clone with HTTPS: https://github.com/osen15/IntelliartsTest.git
+1.Add Java to PC
+2.Add Git to PC
+3.GitHub: clone with HTTPS: https://github.com/osen15/IntelliartsTest.git
+4.Git Bash: $ git clone  https://github.com/osen15/IntelliartsTest.git
+5.In the tolder IntelliartsTest and the Jar File with Java(TM) Platform SE or 
 
-IDE: used IntelliJ IDEA
+
+
 # Operations in the application:
 >adds purchases
 
