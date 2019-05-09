@@ -30,7 +30,7 @@ public class PurchaseController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/savePurchase")
     @ResponseBody
-    public Map<LocalDate, List<String>> purchase(HttpServletRequest request) {
+    public Map<LocalDate, List<Purchase>> purchase(HttpServletRequest request) {
         Purchase purchase = jsonToModel.jsonToEntity(request);
         if (purchase.getDateOfPurchase() == null)
             purchase.setDateOfPurchase(LocalDate.now());
@@ -39,21 +39,21 @@ public class PurchaseController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/removeByDate")
     @ResponseBody
-    Map<LocalDate, List<String>> doClear(@RequestParam("date") String stDate) throws BadRequestEXception, InternalServerError {
+    Map<LocalDate, List<Purchase>> doClear(@RequestParam("date") String stDate) throws BadRequestEXception, InternalServerError {
       return  purchaseService.clear(stDate);
 
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/allPurchases")
     @ResponseBody
-    Map<LocalDate, List<String>> doAll() throws BadRequestEXception, InternalServerError {
+    Map<LocalDate, List<Purchase>> doAll() throws BadRequestEXception, InternalServerError {
         return purchaseService.getAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/report")
     @ResponseBody
-    public String report(@RequestParam(defaultValue = "2019") String year,
-                         @RequestParam(defaultValue = "UAH") String currency) {
+    public String report(@RequestParam("year") String year,
+                         @RequestParam("currency") String currency) {
         return purchaseService.getReport(year, currency);
     }
 }

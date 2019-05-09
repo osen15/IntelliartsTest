@@ -1,5 +1,6 @@
 package com.utils.fixerClient;
 
+import com.exceptions.BadRequestEXception;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,7 +31,12 @@ public class FixerClient {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-
+        System.out.println(rates);
         return rates;
     }
+   public void supportedCurrencies(String currency){
+      if (!getRates().containsKey(currency.toUpperCase()))
+          throw new BadRequestEXception(currency + "not supported");
+
+   }
 }

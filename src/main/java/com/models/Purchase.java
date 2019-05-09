@@ -1,12 +1,9 @@
 package com.models;
 
-import com.enums.TypeOfCurrency;
-import org.springframework.stereotype.Component;
 
+import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Objects;
 
 @Component
@@ -22,11 +19,12 @@ public class Purchase {
     private LocalDate dateOfPurchase;
     @Column(name = "AMOUNT")
     private float amount;
-    @Enumerated(EnumType.STRING)
     @Column(name = "CURRENCY")
-    private TypeOfCurrency currency;
+    private String currency;
     @Column(name = "SOUVENIR_NAME")
     private String name;
+
+
 
     public Long getId() {
         return id;
@@ -52,11 +50,11 @@ public class Purchase {
         this.amount = amount;
     }
 
-    public TypeOfCurrency getCurrency() {
+    public String getCurrency() {
         return currency;
     }
 
-    public void setCurrency(TypeOfCurrency currency) {
+    public void setCurrency(String currency) {
         this.currency = currency;
     }
 
@@ -76,7 +74,7 @@ public class Purchase {
         return Float.compare(purchase.amount, amount) == 0 &&
                 Objects.equals(id, purchase.id) &&
                 Objects.equals(dateOfPurchase, purchase.dateOfPurchase) &&
-                currency == purchase.currency &&
+                Objects.equals(currency, purchase.currency) &&
                 Objects.equals(name, purchase.name);
     }
 
@@ -91,7 +89,7 @@ public class Purchase {
                 "id=" + id +
                 ", dateOfPurchase=" + dateOfPurchase +
                 ", amount=" + amount +
-                ", currency=" + currency +
+                ", currency='" + currency + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }
