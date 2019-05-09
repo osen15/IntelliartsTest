@@ -1,19 +1,23 @@
 # IntelliartsTest
 This is a test task for the Summer Camp 2019
 # I used:
-Java 8,
+>Java 8
 
-Spring
+>Spring
 
-Hibernate
+>Hibernate
 
-Oracle SQL
+>Oracle SQL
 
-TomCat
+>TomCat
 
-Maven
+>Maven
 
-Postman
+>Postman
+# You can run:
+Clone with HTTPS: https://github.com/osen15/IntelliartsTest.git
+
+IDE: used IntelliJ IDEA
 # Operations in the application:
 >adds purchases
 
